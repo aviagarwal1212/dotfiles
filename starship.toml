@@ -5,7 +5,6 @@ $directory\
 $hostname\
 $git_branch\
 $git_status\
-${custom.dotfile}\
 $cmd_duration\
 $fill\
 $python\
@@ -50,13 +49,6 @@ format = "$symbol[$branch(:$remotebranch) ]($style)"
 style = "purple"
 modified = "${count}"
 format = "[(\\[$modified\\]) ]($style)"
-
-[custom.dotfile]
-style = "purple"
-symbol = " "
-detect_folders = [".cfg"]
-command = "(/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME status --porcelain | grep 'M ' |wc -l | xargs) 2>/dev/null"
-format = "$symbol[dotfiles(\\[$output\\]) ]($style)"
 
 [cmd_duration]
 style = "yellow dimmed"
