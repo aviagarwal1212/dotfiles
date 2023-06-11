@@ -18,7 +18,6 @@ export EDITOR=hx
 # Setup navigation shortcuts
 cx() { z "$1" && lsd; }
 alias home="z ~"
-alias ls="lsd"
 alias za="zellij a"
 alias zs="zellij -s"
 zla() { zellij a "$(zellij ls | fzf)" ; }
