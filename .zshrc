@@ -53,8 +53,9 @@ setopt prompt_subst
 # Setup bat theme
 export BAT_THEME="Catppuccin-macchiato"
 
-# Setup go/bin in PATH
+# Setup PATH
 export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Setup zsh-completions
 if type brew &>/dev/null; then
