@@ -5,12 +5,8 @@ $directory\
 $hostname\
 $git_branch\
 $git_status\
-$cmd_duration\
-$fill\
-$python\
-$nodejs\
-$golang\
 ${custom.colima}\
+$cmd_duration\
 $line_break\
 $username\
 $character
@@ -24,21 +20,6 @@ repo_root_style = "purple"
 truncation_symbol = ""
 read_only = " "
 read_only_style = "red"
-
-[python]
-pyenv_version_name = true
-style = "yellow"
-pyenv_prefix = "    "
-format = "[${pyenv_prefix}(${version})]($style)"
-
-[nodejs]
-style = "green"
-format = "[   $symbol($version)]($style)"
-
-[golang]
-symbol = "    "
-style = "cyan"
-format = "[$symbol($version)]($style)"
 
 [git_branch]
 style = "purple"
@@ -55,14 +36,11 @@ style = "yellow dimmed"
 format = "[$duration]($style)"
 
 [custom.colima]
-symbol = "    "
+symbol = " "
 style = "blue"
 when = "echo $COLIMA_STATE | grep ."
 command = "echo $COLIMA_STATE"
-format = "[$symbol($output)]($style)"
-
-[fill]
-symbol = " "
+format = "[$symbol($output) ]($style)"
 
 [username]
 style_root = "red"

@@ -9,7 +9,7 @@ if wezterm.config_builder then
 end
 
 -- Set the color scheme
-config.color_scheme = "Catppuccin Macchiato"
+config.color_scheme = "OneDark (Gogh)"
 
 -- Set the font options
 config.font = wezterm.font("FiraCode Nerd Font Mono")
@@ -20,7 +20,7 @@ config.default_cursor_style = "SteadyBar"
 
 -- Window-related settings
 config.enable_tab_bar = false
-config.window_decorations = "RESIZE"
+config.window_decorations = "TITLE | RESIZE"
 
 
 

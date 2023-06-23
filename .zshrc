@@ -7,11 +7,6 @@ eval "$(starship init zsh)"
 # Set up zoxide
 eval "$(zoxide init zsh)"
 
-# Set up pyenv
-eval "$(pyenv init -)"
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-
 # set up editor
 export EDITOR=hx
 
@@ -28,7 +23,9 @@ zla() { zellij a "$(zellij ls | fzf)" ; }
 alias reload="source ~/.zshrc"
 
 # Setup colima alias
-alias colima-start="export COLIMA_STATE=aarch64-docker && colima start" # https://alexos.dev/2022/01/02/docker-desktop-alternatives-for-m1-mac/#recommended-option---colima
+export DOCKER_HOST=unix://$HOME/.colima/default/docker.sock    
+alias colima-arch="export COLIMA_STATE=aarch64 && colima start" # https://alexos.dev/2022/01/02/docker-desktop-alternatives-for-m1-mac/#recommended-option---colima
+alias colima-amd="export COLIMA_STATE=amd64 && colima start --arch x86_64"
 alias colima-stop="unset COLIMA_STATE && colima stop"
 
 # Setup dotfile git alias
@@ -80,3 +77,8 @@ export FZF_DEFAULT_OPTS=" \
 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
 --color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796"
+# Created by `pipx` on 2023-06-12 12:46:11
+export PATH="$PATH:/Users/avi/.local/bin"
+
+# Setup compinit
+autoload -Uz compinit && compinit
