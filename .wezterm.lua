@@ -9,10 +9,10 @@ if wezterm.config_builder then
 end
 
 -- Set the color scheme
-config.color_scheme = "OneDark (Gogh)"
+config.color_scheme = "Tokyo Night Storm (Gogh)"
 
 -- Set the font options
-config.font = wezterm.font("FiraCode Nerd Font Mono")
+config.font = wezterm.font("JetBrains Mono")
 config.font_size = 15.0
 config.line_height = 1.2
 config.bold_brightens_ansi_colors = "BrightOnly"

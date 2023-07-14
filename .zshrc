@@ -3,6 +3,7 @@ eval "source ~/Documents/Coding/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
 
 # Set up starship
 eval "$(starship init zsh)"
+export VIRTUAL_ENV_DISABLE_PROMPT=0
 
 # Set up zoxide
 eval "$(zoxide init zsh)"
@@ -17,16 +18,22 @@ alias config="cx ~/.config"
 alias za="zellij a"
 alias zs="zellij -s"
 zla() { zellij a "$(zellij ls | fzf)" ; }
-
+python-init() {
+    mkdir "$1"
+    cd "$1"
+    python3 -m venv .venv
+    source .venv/bin/activate
+    gi python,macos,git > .gitignore
+    git init
+    touch requirements.txt
+    mkdir src
+    touch src/__init__.py src/main.py
+    cp ~/.config/dev-requirements.txt dev-requirements.txt
+    pip3 install -r dev-requirements.txt
+}
 
 # Setup reload alias
 alias reload="source ~/.zshrc"
-
-# Setup colima alias
-export DOCKER_HOST=unix://$HOME/.colima/default/docker.sock    
-alias colima-arch="export COLIMA_STATE=aarch64 && colima start" # https://alexos.dev/2022/01/02/docker-desktop-alternatives-for-m1-mac/#recommended-option---colima
-alias colima-amd="export COLIMA_STATE=amd64 && colima start --arch x86_64"
-alias colima-stop="unset COLIMA_STATE && colima stop"
 
 # Setup dotfile git alias
 alias dotfile="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
@@ -82,3 +89,9 @@ export PATH="$PATH:/Users/avi/.local/bin"
 
 # Setup compinit
 autoload -Uz compinit && compinit
+
+source /Users/avi/.config/broot/launcher/bash/br
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/avi/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

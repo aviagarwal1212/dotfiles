@@ -12,14 +12,24 @@ x = ":buffer-close"
 j = "jump_backward"
 k = "jump_forward"
 
+[keys.normal.space]
+l = ":toggle lsp.display-inlay-hints"
+
 [keys.normal.backspace]
-b = ":run-shell-command zellij run -f -- make build"
-r = ":run-shell-command zellij run -f -- make run"
+b = ":run-shell-command zellij run -f -- just build"
+r = ":run-shell-command zellij run -f -- just run"
+t = ":run-shell-command zellij run -f -- just test"
 g = ":run-shell-command zellij run -fc -- lazygit"
-f = ":run-shell-command zellij run -fc -- mc"
+f = ":run-shell-command zellij run -fc -- broot"
+
+[keys.normal."["]
+"[" = "goto_previous_buffer"
+
+[keys.normal."]"]
+"]" = "goto_next_buffer"
 
 [editor]
-line-number = "relative"  
+line-number = "relative"
 cursorline = true
 bufferline = "always"
 shell = ["zsh", "-c"]
@@ -40,16 +50,11 @@ select = "underline"
 hidden = false
 
 [editor.statusline]
-left = ["mode", "spacer","diagnostics","spinner"]
-right = ["file-modification-indicator", "spacer", "file-type", "spacer","position-percentage", "spacer"]
-mode.normal = "NOR"
-mode.insert = "INS"
-mode.select = "SEL"
+left = ["mode", "spacer", "diagnostics", "workspace-diagnostics", "spinner"]
+right = ["file-name", "spacer", "position-percentage", "spacer"]
 
 [editor.lsp]
 auto-signature-help = true
-display-inlay-hints = true
 
 [editor.indent-guides]
 render = true
-

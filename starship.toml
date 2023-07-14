@@ -5,11 +5,11 @@ $directory\
 $hostname\
 $git_branch\
 $git_status\
-${custom.colima}\
 $cmd_duration\
 $line_break\
 $username\
-$character
+$character\
+$python
 """
 
 [directory]
@@ -35,13 +35,6 @@ format = "[(\\[$modified\\]) ]($style)"
 style = "yellow dimmed"
 format = "[$duration]($style)"
 
-[custom.colima]
-symbol = " "
-style = "blue"
-when = "echo $COLIMA_STATE | grep ."
-command = "echo $COLIMA_STATE"
-format = "[$symbol($output) ]($style)"
-
 [username]
 style_root = "red"
 style_user = "yellow"
@@ -49,3 +42,7 @@ format = "[$user]($style) "
 
 [hostname]
 format = "on [$hostname]($style) "
+
+[python]
+style = "yellow bold"
+format = "[${virtualenv}]($style) "
