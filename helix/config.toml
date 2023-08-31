@@ -1,0 +1,61 @@
+theme = "tokyonight_storm"
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
+J = ["delete_selection", "paste_after"]
+K = ["delete_selection", "move_line_up", "paste_before"]
+C-u = ["half_page_up", "align_view_center"]
+C-d = ["half_page_down", "align_view_center"]
+
+[keys.normal.g]
+x = ":buffer-close"
+j = "jump_backward"
+k = "jump_forward"
+
+[keys.normal.space]
+l = ":toggle lsp.display-inlay-hints"
+
+[keys.normal.backspace]
+b = ":run-shell-command zellij run -f -- just build"
+r = ":run-shell-command zellij run -f -- just run"
+t = ":run-shell-command zellij run -f -- just test"
+g = ":run-shell-command zellij run -fc -- lazygit"
+f = ":run-shell-command zellij run -fc -- broot"
+
+[keys.normal."["]
+"[" = "goto_previous_buffer"
+
+[keys.normal."]"]
+"]" = "goto_next_buffer"
+
+[editor]
+true-color = true
+line-number = "relative"
+cursorline = true
+bufferline = "always"
+scrolloff = 10
+color-modes = true
+gutters = ["diff", "diagnostics", "line-numbers", "spacer", "spacer"]
+completion-trigger-len = 1
+shell = ["sh", "-c"]
+
+[editor.cursor-shape]
+normal="block"
+insert="bar"
+select="underline"
+
+[editor.soft-wrap]
+enable = true
+
+[editor.file-picker]
+hidden = false
+
+[editor.statusline]
+left = ["mode", "spacer", "diagnostics", "workspace-diagnostics", "spinner"]
+right = ["file-name", "spacer", "position-percentage", "spacer"]
+
+[editor.lsp]
+auto-signature-help = true
+
+[editor.indent-guides]
+render = true

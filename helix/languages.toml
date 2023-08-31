@@ -1,0 +1,62 @@
+# [[language]]
+# name = "python"
+# language-server = { command = "pylsp" }
+# auto-format = true
+
+# [language.config.pylsp.plugins]
+# ruff = { enabled = true, extendSelect = ["I"] }
+# mypy = { enabled = true, live_mode = true, strict = true }
+# black = { enabled = true }
+# flake8 = { enabled = false }
+# pycodestyle = { enabled = false }
+# pyflakes = { enabled = false }
+# mccabe = { enabled = false }
+# pyls_isort = { enabled = false }
+
+[[language]]
+name = "python"
+language-server = { command = "pyright-langserver", args = ["--stdio"] }
+formatter = { command = "black", args = ["--quiet", "--"] }
+auto-format = true
+config = {}
+
+
+[[language]]
+name = "rust"
+
+[language.config.check]
+command = "clippy"
+
+
+[[language]]
+name = "svelte"
+formatter = { command = "prettier" }
+auto-format = true
+
+
+[[language]]
+name = "typescript"
+formatter = { command = "prettier" }
+auto-format = true
+
+
+[[language]]
+name = "toml"
+auto-format = true
+
+
+[[language]]
+name = "yaml"
+auto-format = true
+
+
+[[language]]
+name = "dockerfile"
+file-types = ["Dockerfile", "Dockerfile.lambda"]
+auto-format = true
+
+
+[[language]]
+name = "html"
+file-types = ["html", "htm", "tmpl"]
+auto-format = true

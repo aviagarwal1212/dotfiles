@@ -1,0 +1,16 @@
+color:
+  when: always
+  theme: theme
+display: almost-all
+icons:
+  when: auto
+  theme: fancy
+  separator: " "
+indicators: true
+layout: grid
+sorting:
+  column: name
+  reverse: false
+  dir-grouping: first
+header: false
+hyperlink: auto
