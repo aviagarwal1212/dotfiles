@@ -1,62 +1,105 @@
-# [[language]]
-# name = "python"
-# language-server = { command = "pylsp" }
-# auto-format = true
-
-# [language.config.pylsp.plugins]
-# ruff = { enabled = true, extendSelect = ["I"] }
-# mypy = { enabled = true, live_mode = true, strict = true }
-# black = { enabled = true }
-# flake8 = { enabled = false }
-# pycodestyle = { enabled = false }
-# pyflakes = { enabled = false }
-# mccabe = { enabled = false }
-# pyls_isort = { enabled = false }
-
+# python
 [[language]]
 name = "python"
-language-server = { command = "pyright-langserver", args = ["--stdio"] }
-formatter = { command = "black", args = ["--quiet", "--"] }
 auto-format = true
-config = {}
+language-servers = ["pyright", "ruff"]
+
+[language-server.pyright.config.python.analysis]
+typeCheckingMode = "basic"
+
+[language-server.ruff]
+command = "ruff-lsp"
+
+[langauge-server.ruff.config.settings]
+args = ["--ignore", "E501"]
+
+[language.formatter]
+command = "black"
+args = ["--quiet", "-"]
 
 
+# bash
+[[language]]
+name = "bash"
+indent = { tab-width = 4, unit = "\t" }
+formatter = { command = "shfmt", args = ["-i", "4"] }
+auto-format = true
+
+# rust
 [[language]]
 name = "rust"
 
-[language.config.check]
+[language-server.rust-analyzer.config.check]
 command = "clippy"
 
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'"' = '"'
+"'" = "'"
+'`' = '`'
+'[' = ']'
+'<' = '>'
 
+# svelte
 [[language]]
 name = "svelte"
-formatter = { command = "prettier" }
 auto-format = true
 
+[language.formatter]
+command = "prettier"
+args = ["--write", "--plugin", "prettier-plugin-svelte", "."]
 
+# typescript
 [[language]]
 name = "typescript"
-formatter = { command = "prettier" }
 auto-format = true
 
+[language.formatter]
+command = "prettier"
+args = ["--parser", "typescript"]
 
+# toml
 [[language]]
 name = "toml"
 auto-format = true
 
-
+# yaml
 [[language]]
 name = "yaml"
 auto-format = true
 
-
+# dockerfile
 [[language]]
 name = "dockerfile"
 file-types = ["Dockerfile", "Dockerfile.lambda"]
 auto-format = true
 
-
+# html
 [[language]]
 name = "html"
-file-types = ["html", "htm", "tmpl"]
+file-types = ["html", "tmpl", "gohtml", "htm"]
 auto-format = true
+
+# mojo
+[[language]]
+name = "mojo"
+scope = "source.mojo"
+roots = []
+injection-regex = "mojo"
+file-types = ["mojo", "🔥"]
+comment-token = "#"
+indent = { tab-width = 4, unit = "    " }
+language-servers = ["mojo"]
+auto-format = true
+
+[language-server.mojo]
+command = "mojo-lsp-server"
+
+[language.formatter]
+command = "mojo"
+args = ["format", "-l", "88", "--quiet", "-"]
+
+[[grammar]]
+name = "mojo"
+source = { git = "https://github.com/realprogrammersusevim/tree-sitter-mojo", rev = "f241530d0197c0ddfc0372c60be39221693f9196" }
