@@ -26,7 +26,7 @@ return {
           buffers = {
             mappings = {
               i = {
-                ["<C-x>"] = actions.delete_buffer + actions.move_to_top
+                ["<C-w>"] = actions.delete_buffer + actions.move_to_top
               }
             },
             layout_strategy = "vertical"

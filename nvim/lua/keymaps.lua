@@ -26,7 +26,7 @@ end, { desc = "Format buffer" })
 
 ---Ctrl+key
 vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = "Signature help" })
-vim.keymap.set('n', '<C-x>', "<CMD>:bd<CR>", { desc = "Close buffer" })
+vim.keymap.set('n', '<C-w>', "<CMD>:bd<CR>", { desc = "Close buffer" })
 
 ---[]+key
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, {desc = "Goto previous diagnostic"})
