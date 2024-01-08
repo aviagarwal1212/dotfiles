@@ -1,4 +1,5 @@
-gcloud/
-gh/
-helix/runtime/
-broot/skins/
+gcloud/*
+gh/*
+helix/runtime/*
+broot/skins/*
+lazygit/*
