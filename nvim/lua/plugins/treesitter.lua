@@ -25,5 +25,11 @@ return {
     config = function()
       require('treesitter-context').setup()
     end
+  },
+  {
+    "hedyhli/outline.nvim",
+    config = function()
+      require("outline").setup({})
+    end
   }
 }

@@ -14,6 +14,7 @@ vim.keymap.set('n', '<space>\\', require("telescope.builtin").oldfiles, { desc =
 vim.keymap.set('n', '<space>d', function() require("trouble").toggle() end, { desc = "Toggle diagnostics" })
 vim.keymap.set('n', '<space>u', "<CMD>Telescope undo<CR>", { desc = "Undo history" })
 vim.keymap.set('n', '<space>b', "<CMD>ToggleBlame virtual<CR>", { desc = "Git blame" })
+vim.keymap.set('n', '<space>o', "<CMD>Outline<CR>", { desc = "Symbol outline" })
 
 ---g+key
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = "Goto declaration" })

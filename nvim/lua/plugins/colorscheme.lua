@@ -35,7 +35,8 @@ return {
           style = 'classic'
         },
         cursorline = {
-          theme = 'light'
+          theme = 'light',
+          blend = 0.8,
         },
         override = {
           ---trouble
