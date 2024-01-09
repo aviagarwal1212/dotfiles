@@ -1,26 +1,53 @@
 return {
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     require("tokyonight").setup({
+  --       style = "storm",
+  --       styles = {
+  --         comments = { italic = false },
+  --         keywords = { italic = true },
+  --         functions = { italic = true },
+  --         variables = { italic = false },
+  --       },
+  --       on_colors = function(colors)
+  --         colors.bg_statusline = colors.bg
+  --         colors.green = "#95bb72"
+  --         colors.bg_float = colors.bg_highlight
+  --         colors.bg_popup = colors.bg_highlight
+  --         colors.border_highlight = colors.comment
+  --       end
+  --     })
+  --     vim.cmd.colorscheme "tokyonight-storm"
+  --   end
+  -- },
   {
-    "folke/tokyonight.nvim",
+    "AlexvZyl/nordic.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      require("tokyonight").setup({
-        style = "storm",
-        styles = {
-          comments = { italic = false },
-          keywords = { italic = true },
-          functions = { italic = true },
-          variables = { italic = false },
+      local colors = require("nordic.colors")
+      require("nordic").setup({
+        italic_comments = false,
+        telescope = {
+          style = 'classic'
         },
-        on_colors = function (colors)
-          colors.bg_statusline = colors.bg
-          colors.green = "#95bb72"
-          colors.bg_float = colors.bg_highlight
-          colors.bg_popup = colors.bg_highlight
-          colors.border_highlight = colors.comment
-        end
+        cursorline = {
+          theme = 'light'
+        },
+        override = {
+          ---trouble
+          TroubleNormal = { bg = colors.black1 },
+          TroubleText = { fg = colors.fg },
+          TroubleCount = { fg = colors.white1, bg = colors.gray2 },
+          TroubleIndent = { fg = colors.gray1 },
+          TroubleFile = { fg = colors.cyan.bright },
+          TroubleFoldIcon = { fg = colors.gray1 },
+        }
       })
-      vim.cmd.colorscheme "tokyonight-storm"
+      require("nordic").load()
     end
   }
 }

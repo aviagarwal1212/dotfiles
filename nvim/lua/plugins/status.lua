@@ -10,19 +10,17 @@ return {
         return " "
       end
 
-      local colors = require("tokyonight.colors").setup()
-
       require("lualine").setup({
         options = {
-          theme = "tokyonight",
+          theme = "nordic",
           component_separators = "",
           section_separators = "",
           globalstatus = true
         },
         sections = {
-          lualine_z = { { empty, draw_empty = true, padding = 0 } },
-          lualine_b = { { breadcrumb, colors = { bg = 'black' } } },
-          lualine_c = {},
+          lualine_a = { { empty, draw_empty = true, padding = 0 } },
+          lualine_b = {},
+          lualine_c = { breadcrumb },
           lualine_x = { {
             'diagnostics',
             sources = { 'nvim_lsp', 'nvim_diagnostic' },
@@ -32,15 +30,15 @@ return {
               info = "I",
               hint = "H"
             },
-            diagnostics_color = {
-              error = { fg = colors.red },
-              warn = { fg = colors.orange },
-              hint = { fg = colors.green },
-              info = { fg = colors.blue },
-            },
+            -- diagnostics_color = {
+            --   error = { fg = colors.red },
+            --   warn = { fg = colors.orange },
+            --   hint = { fg = colors.green },
+            --   info = { fg = colors.blue },
+            -- },
           }, { 'filetype', colored = false } },
           lualine_y = {},
-          lualine_a = { {
+          lualine_z = { {
             'filename',
             symbols = {
               modified = "●",
@@ -66,7 +64,7 @@ return {
   },
   {
     "FabijanZulj/blame.nvim",
-    config = function ()
+    config = function()
       require("blame").setup()
     end
   }

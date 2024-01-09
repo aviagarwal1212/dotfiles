@@ -25,8 +25,8 @@ return {
         lsp = {
           auto_attach = true
         },
-        separator = "> ",
-        highlight = true,
+        separator = " > ",
+        highlight = false,
         format_text = function(text)
           return text .. " "
         end
