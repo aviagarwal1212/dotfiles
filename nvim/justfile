@@ -1,0 +1,8 @@
+build:
+  echo "build"
+
+run:
+  echo "run"
+
+test:
+  echo "test"

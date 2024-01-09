@@ -153,10 +153,9 @@ export EDITOR=nvim
 alias reload="source ~/.bashrc"
 cx() { z "$1" && lsd; }
 alias home="cx ~"
-alias za="zellij a"
-alias zs="zellij -s"
 
 # setup application shortcuts
+alias nv="nvim"
 alias lg="lazygit"
 alias ld="lazydocker"
 gi() {
@@ -186,6 +185,6 @@ test -e "$HOME/.shellfishrc" && source "$HOME/.shellfishrc"
 
 # automatically call zellij
 if [[ -z "$ZELLIJ" ]]; then
-    zellij attach -c default
+    zellij attach -c DEFAULT
 fi
 

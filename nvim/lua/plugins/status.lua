@@ -10,6 +10,8 @@ return {
         return " "
       end
 
+      local colors = require("tokyonight.colors").setup()
+
       require("lualine").setup({
         options = {
           theme = "tokyonight",
@@ -30,7 +32,13 @@ return {
               info = "I",
               hint = "H"
             },
-          }, 'progress', { 'filetype', colored = false } },
+            diagnostics_color = {
+              error = { fg = colors.red },
+              warn = { fg = colors.orange },
+              hint = { fg = colors.green },
+              info = { fg = colors.blue },
+            },
+          }, { 'filetype', colored = false } },
           lualine_y = {},
           lualine_a = { {
             'filename',
@@ -54,6 +62,12 @@ return {
     end,
     config = function()
       require("which-key").setup({})
+    end
+  },
+  {
+    "FabijanZulj/blame.nvim",
+    config = function ()
+      require("blame").setup()
     end
   }
 }

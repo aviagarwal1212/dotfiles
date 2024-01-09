@@ -10,7 +10,7 @@ return {
     },
     config = function()
       require("trouble").setup({
-        use_diagnostic_signs = false,
+        use_diagnostic_signs = true,
         position = "right"
       })
     end

@@ -20,7 +20,7 @@ keybinds clear-defaults=true {
             floating true
             move_to_focused_tab true
           };
-          SwitchToMode "Normal"
+          SwitchToMode "Normal";
         }
     bind "Alt ]" { NextSwapLayout; }
       
@@ -298,7 +298,7 @@ default_mode "normal"
 //   - true (default)
 //   - false
 //
-mouse_mode false
+mouse_mode true
 
 // Configure the scroll back buffer size
 // This is the number of lines zellij stores for each pane in the scroll back
@@ -352,4 +352,4 @@ layout_dir "/home/avi/.config/zellij/layouts/"
 //
 //theme_dir "./themes"
 
-session_serialization false
+session_serialization true

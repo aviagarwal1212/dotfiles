@@ -30,7 +30,17 @@ return {
     opts = {
       indent = {
         char = "│"
+      },
+      scope = {
+        show_start = false,
+        show_end = false,
       }
     }
+  },
+  {
+    "ojroques/nvim-osc52",
+    config = function()
+      require("osc52").setup()
+    end
   }
 }

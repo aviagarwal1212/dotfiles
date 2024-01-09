@@ -1,15 +1,29 @@
 layout {
-	pane size=2 borderless=true {
-		plugin location="file:/home/avi/.config/zellij/zjstatus.wasm" {
-			format_left "#[fg=black,bg=blue] {session} "
-			format_right "{tabs}"
-			format_space "#[bg=gray]"
+  pane_template name="standard_template"{
+    pane size=1 borderless=true {
+      plugin location="file:/home/avi/.config/zellij/zjstatus.wasm" {
+        format_left "#[fg=black,bg=blue] {session} "
+        format_right "{tabs}"
+        format_space "#[bg=gray]"
 
-			border_enabled "false"
+        border_enabled "false"
 
-			tab_normal "#[fg=white,bg=gray,italic] {name} "
-			tab_active "#[fg=black,bg=blue] {name} "
-		}
-	}
-  pane
+        tab_normal "#[fg=white,bg=gray,italic] {name} "
+        tab_active "#[fg=black,bg=blue] {name} "
+      }
+    }
+    pane 
+  }
+
+  tab name="editor" focus=true {
+    standard_template
+  }
+
+  tab name="terminal#1" {
+    standard_template
+  }
+
+  tab name="terminal#2" {
+    standard_template
+  }
 }
