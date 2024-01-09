@@ -2,10 +2,6 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     config = function()
-      local function breadcrumb()
-        return require("nvim-navic").get_location()
-      end
-
       local function empty()
         return " "
       end
@@ -20,7 +16,7 @@ return {
         sections = {
           lualine_a = { { empty, draw_empty = true, padding = 0 } },
           lualine_b = {},
-          lualine_c = { breadcrumb },
+          lualine_c = {},
           lualine_x = { {
             'diagnostics',
             sources = { 'nvim_lsp', 'nvim_diagnostic' },
