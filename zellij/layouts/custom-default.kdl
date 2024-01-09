@@ -2,14 +2,14 @@ layout {
   pane_template name="standard_template"{
     pane size=1 borderless=true {
       plugin location="file:/home/avi/.config/zellij/zjstatus.wasm" {
-        format_left "#[fg=black,bg=blue] {session} "
+        format_left "#[fg=black,bg=#D08770] {session} "
         format_right "{tabs}"
         format_space "#[bg=gray]"
 
         border_enabled "false"
 
         tab_normal "#[fg=white,bg=gray,italic] {name} "
-        tab_active "#[fg=black,bg=blue] {name} "
+        tab_active "#[fg=black,bg=#D08770] {name} "
       }
     }
     pane 
@@ -19,11 +19,11 @@ layout {
     standard_template
   }
 
-  tab name="terminal#1" {
+  tab name="terminal #1" {
     standard_template
   }
 
-  tab name="terminal#2" {
+  tab name="terminal #2" {
     standard_template
   }
 }

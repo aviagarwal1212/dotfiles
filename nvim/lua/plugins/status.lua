@@ -11,7 +11,7 @@ return {
           theme = "nordic",
           component_separators = "",
           section_separators = "",
-          globalstatus = true
+          globalstatus = true,
         },
         sections = {
           lualine_a = { { empty, draw_empty = true, padding = 0 } },
@@ -32,15 +32,18 @@ return {
             --   hint = { fg = colors.green },
             --   info = { fg = colors.blue },
             -- },
-          }, { 'filetype', colored = false } },
+          }, { 'filetype', colored = true } },
           lualine_y = {},
           lualine_z = { {
             'filename',
             symbols = {
               modified = "●",
-              readonly = "!",
+              readonly = "",
               unnamed = "MENU",
               newfile = "NEW"
+            },
+            color = {
+              gui = "",
             }
           } },
         },

@@ -23,7 +23,12 @@ return {
         },
         window = {
           completion = {
-            winhighlight = "Normal:TroubleNormal"
+            winhighlight = "Normal:TelescopeNormal,FloatBorder:TelescopeBorder,CursorLine:TelescopeSelection",
+            border = "rounded"
+          },
+          documentation = {
+            winhighlight = "Normal:TelescopeNormal,FloatBorder:TelescopeBorder",
+            border = "rounded"
           },
         },
         mapping = cmp.mapping.preset.insert({
