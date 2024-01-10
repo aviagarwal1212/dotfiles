@@ -21,15 +21,21 @@ return {
     end
   },
   {
-    "nvim-treesitter/nvim-treesitter-context",
-    config = function()
-      require('treesitter-context').setup()
-    end
-  },
-  {
     "hedyhli/outline.nvim",
     config = function()
       require("outline").setup({})
+    end
+  },
+  {
+    "SmiteshP/nvim-navic",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    config = function()
+      require("nvim-navic").setup({
+        lsp = {
+          auto_attach = true,
+          preference = nil,
+        }
+      })
     end
   }
 }

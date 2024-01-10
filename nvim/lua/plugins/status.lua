@@ -6,6 +6,10 @@ return {
         return " "
       end
 
+      local function breadcrumb()
+        return require("nvim-navic").get_location()
+      end
+
       require("lualine").setup({
         options = {
           theme = "nordic",
@@ -16,7 +20,7 @@ return {
         sections = {
           lualine_a = { { empty, draw_empty = true, padding = 0 } },
           lualine_b = {},
-          lualine_c = {},
+          lualine_c = { breadcrumb },
           lualine_x = { {
             'diagnostics',
             sources = { 'nvim_lsp', 'nvim_diagnostic' },
@@ -26,12 +30,6 @@ return {
               info = "I",
               hint = "H"
             },
-            -- diagnostics_color = {
-            --   error = { fg = colors.red },
-            --   warn = { fg = colors.orange },
-            --   hint = { fg = colors.green },
-            --   info = { fg = colors.blue },
-            -- },
           }, { 'filetype', colored = true } },
           lualine_y = {},
           lualine_z = { {
