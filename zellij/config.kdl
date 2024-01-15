@@ -122,7 +122,7 @@ keybinds clear-defaults=true {
 
     renametab {
         //bind "Ctrl c" { SwitchToMode "Normal"; }
-        bind "Esc" { UndoRenameTab; SwitchToMode "Normal"; }
+        bind "Esc" { SwitchToMode "Normal"; }
     }
 
     renamepane {
