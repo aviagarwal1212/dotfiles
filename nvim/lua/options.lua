@@ -3,10 +3,6 @@ vim.g.leader = " "
 vim.opt.swapfile = false
 vim.opt.fileencoding = "utf-8"
 
----tabs and spaces
-vim.opt.expandtab = true
-vim.opt.smartindent = true
-
 ---numbering
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -16,6 +12,7 @@ vim.opt.scrolloff = 10
 vim.opt.signcolumn = "yes"
 
 ---search
+vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
