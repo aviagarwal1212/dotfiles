@@ -3,6 +3,10 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
+#
+#
+#
+#
 
 # If not running interactively, don't do anything
 case $- in
@@ -103,7 +107,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+    . /home/avi/.bash_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -119,14 +123,10 @@ fi
 
 # --> Modified <--
 
+set -o emacs
+
 # starship
 eval "$(starship init bash)"
-
-# allow vi-mode
-set -o vi
-set show-mode-in-prompt on
-set vi-ins-mode-string I
-set vi-cmd-mode-string N
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -152,14 +152,26 @@ export EDITOR=nvim
 # setup navigation
 alias reload="source ~/.bashrc"
 cx() { z "$1" && lsd; }
-alias home="cx ~"
+ci() { zi "$1" && lsd; }
 
 # setup application shortcuts
 alias nv="nvim"
 alias lg="lazygit"
 alias ld="lazydocker"
+
+# setup custom utilities
 gi() {
-    curl -sL "https://www.toptal.com/developers/gitignore/api/$@"
+    curl -sL "https://www.toptal.com/developers/gitignore/api/$*"
+}
+load() {
+        if [[ -z "$ZELLIJ" ]]; then
+                session="$(zellij ls --short | fzf --reverse --height 40% --color=gutter:-1 --print-query --bind 'ctrl-k:execute(zellij kill-session {})' --bind 'ctrl-k:+reload(zellij ls --short)' --bind 'ctrl-c:+abort' | tail -1)"
+                if [[ -z "$session" ]]; then
+                        echo "Cancelling out of zellij"
+                else
+                        zellij attach -c "$session"
+                fi
+        fi
 }
 
 # pnpm
@@ -174,7 +186,7 @@ export MODULAR_HOME="/home/avi/.modular"
 export PATH="/home/avi/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
  
 # atuin
-[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+[[ -f ~/.bash-preexec.sh ]] && source /home/avi/.bash-preexec.sh
 eval "$(atuin init bash)"
 
 # gvm
@@ -184,7 +196,4 @@ eval "$(atuin init bash)"
 test -e "$HOME/.shellfishrc" && source "$HOME/.shellfishrc"
 
 # automatically call zellij
-if [[ -z "$ZELLIJ" ]]; then
-    zellij attach -c DEFAULT
-fi
-
+load

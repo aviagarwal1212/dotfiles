@@ -11,25 +11,25 @@ return {
       "williamboman/mason.nvim",
     },
     config = function()
-      require("mason-lspconfig").setup {      
+      require("mason-lspconfig").setup {
         ensure_installed = {
-          "lua_ls", --lua
-          "pyright", --python
-          "ruff_lsp", --python
-          "bashls", --bash
-          "dockerls", --docker
-          "gopls", --go
-          "html", --html
-          "htmx", --htmx
-          "jsonls", --json
+          "lua_ls",        --lua
+          "pyright",       --python
+          "ruff_lsp",      --python
+          "bashls",        --bash
+          "dockerls",      --docker
+          "gopls",         --go
+          "html",          --html
+          "htmx",          --htmx
+          "jsonls",        --json
           "rust_analyzer", --rust
-          "sqlls", --sql
-          "svelte", --svelte
-          "taplo", --toml
-          "tailwindcss", --tailwind
-          "terraformls", --terraform
-          "tsserver", --typescript
-          "zls", --zig
+          "sqlls",         --sql
+          "svelte",        --svelte
+          "taplo",         --toml
+          "tailwindcss",   --tailwind
+          "terraformls",   --terraform
+          "tsserver",      --typescript
+          "zls",           --zig
         },
         automatic_installation = true,
       }
@@ -38,9 +38,21 @@ return {
       require("mason-lspconfig").setup_handlers {
         function(server_name)
           require("lspconfig")[server_name].setup({
-            capabilities = capabilities 
+            capabilities = capabilities
           })
         end,
+        function()
+          require("rust_analyzer").setup({
+            capabilities = capabilities,
+            settings = {
+              checkOnSave = {
+                allFeatures = true,
+                command = "clippy",
+                extraArgs = { "--no-deps" },
+              }
+            }
+          })
+        end
       }
     end
   },

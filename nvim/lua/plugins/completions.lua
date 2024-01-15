@@ -16,11 +16,14 @@ return {
       require("luasnip.loaders.from_vscode").lazy_load()
 
       cmp.setup({
-        preselect = cmp.PreselectMode.None,
+        enabled = true,
         snippet = {
           expand = function(args)
             require("luasnip").lsp_expand(args.body)
           end
+        },
+        completion = {
+          completeopt = "menu,menuone,noinsert",
         },
         window = {
           completion = {
@@ -33,32 +36,71 @@ return {
           },
         },
         mapping = cmp.mapping.preset.insert({
-          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<CR>"] = cmp.mapping.confirm({ select = true }),
-          ["<Esc>"] = cmp.mapping.abort(),
+          ["<C-u>"] = function(fallback)
+            if cmp.visible() then
+              cmp.mapping.scroll_docs(-4)
+            else
+              fallback()
+            end
+          end,
+          ["<C-d>"] = function(fallback)
+            if cmp.visible() then
+              cmp.mapping.scroll_docs(4)
+            else
+              fallback()
+            end
+          end,
+          ["<Tab>"] = function(fallback)
+            if cmp.visible() then
+              cmp.confirm()
+            else
+              fallback()
+            end
+          end,
+          ["<Esc>"] = function(fallback)
+            if cmp.visible() then
+              cmp.abort()
+              fallback()
+            else
+              fallback()
+            end
+          end,
         }),
         sources = cmp.config.sources({
-          { name = "nvim_lsp", group_index = 1 },
-          { name = "luasnip",  group_index = 1 },
+          { name = "luasnip",  group_index = 2 },
+          { name = "nvim_lsp", group_index = 2 },
+          { name = "copilot",  group_index = 2, keyword_length = 5 },
           { name = "path",     group_index = 2 },
-          { name = "buffer",   group_index = 2 },
-          { name = "copilot",  group_index = 2 },
         }),
+        sorting = {
+          priority_weight = 2,
+          comparators = {
+            require("copilot_cmp.comparators").prioritize,
+            cmp.config.compare.offset,
+            cmp.config.compare.exact,
+            cmp.config.compare.score,
+            cmp.config.compare.recently_used,
+            cmp.config.compare.kind,
+            cmp.config.compare.sort_text,
+            cmp.config.compare.length,
+            cmp.config.compare.order,
+          },
+        }
       })
     end
   },
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
-    event = "InsertEnter",
+    event = { "InsertEnter" },
+    fix_pairs = true,
     config = function()
       require("copilot").setup({
         panel = {
           enabled = false,
         },
         suggestion = {
-          auto_trigger = false,
+          enabled = false,
         },
         filetypes = {
           ["oil"] = false,

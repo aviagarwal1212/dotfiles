@@ -10,24 +10,16 @@ keybinds clear-defaults=true {
         bind "Alt Up" { MoveFocus "Up"; }
         bind "Alt =" "Alt +" { Resize "Increase"; }
         bind "Alt -" { Resize "Decrease"; }
-        bind "Alt \\" { GoToNextTab; }
+        bind "Alt ]" { GoToNextTab; }
+        bind "Alt [" { GoToPreviousTab; }
         bind "Alt d" { Detach; }
-        bind "Alt c" { Copy; }
-        bind "Alt s" { SwitchToMode "Scroll"; EditScrollback; SwitchToMode "Normal"; }
+        bind "Alt s" { EditScrollback; SwitchToMode "Normal"; }
         bind "Alt r" { SwitchToMode "RenameTab"; TabNameInput 0; }
-        bind "Alt m" { 
-          LaunchOrFocusPlugin "zellij:session-manager" {
-            floating true
-            move_to_focused_tab true
-          };
-          SwitchToMode "Normal";
-        }
-    bind "Alt ]" { NextSwapLayout; }
-      
+        bind "Alt l" { SwitchToMode "Locked"; }
     }
 
     locked {
-        //bind "Esc" { SwitchToMode "Normal"; }
+        bind "Esc" { SwitchToMode "Normal"; }
     }
 
     resize {
@@ -45,7 +37,7 @@ keybinds clear-defaults=true {
     }
 
     pane {
-        //bind "Ctrl p" { SwitchToMode "Normal"; }
+        bind "Esc" { SwitchToMode "Normal"; }
         //bind "h" "Left" { MoveFocus "Left"; }
         //bind "l" "Right" { MoveFocus "Right"; }
         //bind "j" "Down" { MoveFocus "Down"; }
@@ -73,7 +65,7 @@ keybinds clear-defaults=true {
     }
 
     tab {
-        //bind "Ctrl t" { SwitchToMode "Normal"; }
+        bind "Ctrl t" { SwitchToMode "Normal"; }
         //bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
         //bind "h" "Left" "Up" "k" { GoToPreviousTab; }
         //bind "l" "Right" "Down" "j" { GoToNextTab; }
@@ -130,7 +122,7 @@ keybinds clear-defaults=true {
 
     renametab {
         //bind "Ctrl c" { SwitchToMode "Normal"; }
-        //bind "Esc" { UndoRenameTab; SwitchToMode "Tab"; }
+        bind "Esc" { UndoRenameTab; SwitchToMode "Normal"; }
     }
 
     renamepane {
@@ -168,33 +160,6 @@ keybinds clear-defaults=true {
         //bind "x" { CloseFocus; SwitchToMode "Normal"; }
     }
     // most used
-    shared_except "normal" {
-        bind "Esc" { SwitchToMode "Normal"; } 
-    }
-    shared_except "normal" "locked" {
-        //bind "Enter" "Esc" { SwitchToMode "Normal"; }
-    }
-    shared_except "pane" "locked" {
-        //bind "Ctrl p" { SwitchToMode "Pane"; }
-    }
-    shared_except "resize" "locked" {
-        //bind "Ctrl n" { SwitchToMode "Resize"; }
-    }
-    shared_except "scroll" "locked" {
-        //bind "Ctrl s" { SwitchToMode "Scroll"; }
-    }
-    shared_except "session" "locked" {
-        //bind "Ctrl o" { SwitchToMode "Session"; }
-    }
-    shared_except "tab" "locked" {
-        //bind "Ctrl t" { SwitchToMode "Tab"; }
-    }
-    shared_except "move" "locked" {
-        //bind "Ctrl h" { SwitchToMode "Move"; }
-    }
-    shared_except "tmux" "locked" {
-        //bind "Ctrl b" { SwitchToMode "Tmux"; }
-    }
 }
 
 plugins {
@@ -264,9 +229,9 @@ themes {
   nordic {
     fg "#BBC3D4"
     bg "#242933"
-    black "#191D24"
+    black "#242933"
     red "#BF616A"
-    green "#A3BE8C"
+    green "#BBC3D4"
     yellow "#EBCB8B"
     blue "#5E81AC"
     magenta "#B48EAD"
@@ -366,4 +331,4 @@ layout_dir "/home/avi/.config/zellij/layouts/"
 //
 //theme_dir "./themes"
 
-session_serialization true
+session_serialization false
