@@ -8,7 +8,6 @@ $cmd_duration\
 $jobs\
 $line_break\
 $character\
-$python
 """
 
 [directory]
@@ -16,7 +15,7 @@ truncation_length = 3
 truncate_to_repo = false
 style = "cyan"
 repo_root_style = "purple"
-truncation_symbol = ""
+truncation_symbol = "..."
 read_only = " "
 read_only_style = "red"
 
@@ -28,7 +27,7 @@ format = "$symbol[$branch(:$remotebranch)]($style)"
 [git_status]
 style = "purple"
 modified = "${count}"
-format = "[(\\[$modified\\]) ]($style)"
+format = "[(\\($modified\\)) ]($style)"
 
 [cmd_duration]
 style = "yellow dimmed"
@@ -37,13 +36,4 @@ format = "[$duration]($style) "
 [jobs]
 style = "red bold"
 symbol = "●"
-format = "[$symbol $number]($style)"
-
-[username]
-style_root = "red"
-style_user = "yellow"
-format = "[$user]($style) "
-
-[python]
-style = "yellow bold"
-format = "[${virtualenv}]($style) "
+format = "[$symbol]($style)"
