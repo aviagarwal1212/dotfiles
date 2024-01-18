@@ -22,8 +22,8 @@ verbs: [
     #  }
 
     {
-        name: open
-        invocation: enter
+        name: open-code
+        key: enter
         execution: "bash open_helix.sh {file}"
         leave_broot: false
     }
