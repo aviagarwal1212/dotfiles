@@ -140,7 +140,7 @@ eval "$(zoxide init bash)"
 source /home/avi/.config/broot/launcher/bash/br
 
 # setup default editor
-export EDITOR=nvim
+export EDITOR=hx
 
 # setup navigation
 alias reload="source ~/.bashrc"

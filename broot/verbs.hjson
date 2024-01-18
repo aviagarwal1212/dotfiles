@@ -14,16 +14,16 @@ verbs: [
     # }
 
     # Example 2: creating a new file without leaving broot
-    {
-        name: touch
-        invocation: t {new_file}
-        execution: "touch {directory}/{new_file}"
-        leave_broot: false
-    }
+    # {
+    #     name: touch
+    #     invocation: t {new_file}
+    #     execution: "touch {directory}/{new_file}"
+    #     leave_broot: false
+    #  }
 
     {
-        name: edit
-        invocation: e
+        name: open
+        invocation: enter
         execution: "bash open_helix.sh {file}"
         leave_broot: false
     }
@@ -39,17 +39,17 @@ verbs: [
     #   so that you may jump directly at the right line from a preview.
     # Example:
     #  execution: nvim +{line} {file}
-    # {
-    #     invocation: edit
-    #     shortcut: e
-    #     execution: "$EDITOR +{line} {file}"
-    #     leave_broot: false
-    #  }
+    {
+        invocation: edit
+        shortcut: e
+        execution: "$EDITOR +{line} {file}"
+        leave_broot: false
+    }
 
     # A convenient shortcut to create new text files in
     # the current directory or below
     {
-        invocation: create {subpath}
+        invocation: bonk {subpath}
         execution: "bonk {directory}/{subpath}"
         leave_broot: false
     }
