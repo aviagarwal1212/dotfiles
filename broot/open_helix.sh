@@ -10,7 +10,6 @@ fileName=$(readlink -f $1)
 # fileName = "test.json"
 
 zellij action move-focus left 
-sleep 0.5
 zellij action write-chars ":open $fileName"
 zellij action write 13
 zellij action move-focus right
