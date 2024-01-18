@@ -13,11 +13,6 @@ command = "ruff-lsp"
 [langauge-server.ruff.config.settings]
 args = ["--ignore", "E501"]
 
-[language.formatter]
-command = "black"
-args = ["--quiet", "-"]
-
-
 # bash
 [[language]]
 name = "bash"
@@ -78,28 +73,4 @@ auto-format = true
 # html
 [[language]]
 name = "html"
-file-types = ["html", "tmpl", "gohtml", "htm"]
 auto-format = true
-
-# mojo
-[[language]]
-name = "mojo"
-scope = "source.mojo"
-roots = []
-injection-regex = "mojo"
-file-types = ["mojo", "🔥"]
-comment-token = "#"
-indent = { tab-width = 4, unit = "    " }
-language-servers = ["mojo"]
-auto-format = true
-
-[language-server.mojo]
-command = "mojo-lsp-server"
-
-[language.formatter]
-command = "mojo"
-args = ["format", "-l", "88", "--quiet", "-"]
-
-[[grammar]]
-name = "mojo"
-source = { git = "https://github.com/realprogrammersusevim/tree-sitter-mojo", rev = "f241530d0197c0ddfc0372c60be39221693f9196" }

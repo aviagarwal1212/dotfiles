@@ -2,10 +2,10 @@ add_newline = true
 
 format = """
 $directory\
-$hostname\
 $git_branch\
 $git_status\
 $cmd_duration\
+$jobs\
 $line_break\
 $character\
 $python
@@ -23,7 +23,7 @@ read_only_style = "red"
 [git_branch]
 style = "purple"
 symbol = " "
-format = "$symbol[$branch(:$remotebranch) ]($style)"
+format = "$symbol[$branch(:$remotebranch)]($style)"
 
 [git_status]
 style = "purple"
@@ -32,15 +32,17 @@ format = "[(\\[$modified\\]) ]($style)"
 
 [cmd_duration]
 style = "yellow dimmed"
-format = "[$duration]($style)"
+format = "[$duration]($style) "
+
+[jobs]
+style = "red bold"
+symbol = "●"
+format = "[$symbol $number]($style)"
 
 [username]
 style_root = "red"
 style_user = "yellow"
 format = "[$user]($style) "
-
-[hostname]
-format = "on [$hostname]($style) "
 
 [python]
 style = "yellow bold"

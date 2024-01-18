@@ -1,14 +1,18 @@
-theme = "tokyonight_storm"
+theme = "catppuccin_macchiato"
 
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
+"\\" = "buffer_picker"
 J = ["delete_selection", "paste_after"]
 K = ["delete_selection", "move_line_up", "paste_before"]
-C-x = ":buffer-close"
-"\\" = "buffer_picker"
-"tab" = "goto_next_paragraph"
-"S-tab" = "goto_prev_paragraph"
 a = ["move_char_right", "insert_mode"]
+
+C-w = ":buffer-close"
+
+S-up = "expand_selection"
+S-down = "shrink_selection"
+S-right = "select_next_sibling"
+S-left = "select_prev_sibling"
 
 [keys.normal.space]
 l = ":toggle lsp.display-inlay-hints"
@@ -18,19 +22,27 @@ b = ":run-shell-command zellij run -f -- just build"
 r = ":run-shell-command zellij run -f -- just run"
 t = ":run-shell-command zellij run -f -- just test"
 g = ":run-shell-command zellij run -fc -- lazygit"
-f = ":run-shell-command zellij run -fc -- broot"
-e = [":config-reload", ":reload-all", ":lsp-restart"]
+f = ":run-shell-command zellij run --direction right --name broot --close-on-exit -- broot"
+e = [":config-reload", ":reload-all", ":redraw", ":lsp-restart"]
+
+[keys.normal.z]
+up = "half_page_up"
+down = "half_page_down"
+
+[keys.normal.Z]
+up = "half_page_up"
+down = "half_page_down"
 
 [editor]
 true-color = true
 line-number = "relative"
 cursorline = true
 bufferline = "never"
-scrolloff = 10
-color-modes = true
+scrolloff = 5
 gutters = ["diff", "diagnostics", "line-numbers", "spacer", "spacer"]
 completion-trigger-len = 1
 shell = ["sh", "-c"]
+mouse = true
 
 [editor.cursor-shape]
 normal = "block"
@@ -44,13 +56,22 @@ enable = true
 hidden = false
 
 [editor.statusline]
-left = ["mode", "file-name", "diagnostics", "workspace-diagnostics", "spinner"]
-right = [
-  "read-only-indicator",
+mode.normal = "NOR"
+mode.insert = "INS"
+mode.select = "VIS"
+
+left = [
+  "mode",
+  "file-name",
   "file-modification-indicator",
-  "file-type",
-  "position-percentage",
-  "total-line-numbers",
+  "read-only-indicator",
+]
+right = [
+  "spinner",
+  "diagnostics",
+  "workspace-diagnostics",
+  "version-control",
+  "spacer",
 ]
 
 [editor.lsp]

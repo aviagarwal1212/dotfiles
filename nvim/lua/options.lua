@@ -23,3 +23,6 @@ vim.opt.undofile = true
 ---wildmode
 vim.opt.wildmenu = true
 vim.opt.wildmode = "full:lastused"
+
+---cursor
+vim.opt.guicursor = ""

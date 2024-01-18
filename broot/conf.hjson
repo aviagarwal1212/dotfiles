@@ -23,7 +23,7 @@
 # if you don't want the hidden files you can launch `br -H`)
 # A popular flag is the `g` one which displays git related info.
 #
-# default_flags:
+default_flags:"ihg"
 
 ###############################################################
 # Date/Time format
@@ -52,16 +52,11 @@ show_selection_mark: true
 # array. You should keep the name column at the end as it has a
 # variable length.
 #
-# cols_order: [
-#     mark
-#     git
-#     size
-#     permission
-#     date
-#     count
-#     branch
-#     name
-# ]
+ cols_order: [
+     mark
+     git
+     size
+ ]
 
 ###############################################################
 # True Colors
@@ -71,7 +66,7 @@ show_selection_mark: true
 # and set it to false or true if you notice the colors in
 # previewed images are too off.
 #
-# true_colors: false
+true_colors: true
 
 ###############################################################
 # Icons
@@ -179,8 +174,8 @@ imports: [
             unknown
         ]
         # (un)comment to choose your preferred skin
-        file: skins/dark-blue.hjson
-        //file: skins/catppuccin-macchiato.hjson
+        //file: skins/dark-blue.hjson
+        file: skins/catppuccin-macchiato.hjson
         //file: skins/catppuccin-mocha.hjson
         //file: skins/dark-gruvbox.hjson
         //file: skins/dark-orange.hjson

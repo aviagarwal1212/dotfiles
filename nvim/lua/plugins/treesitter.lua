@@ -61,8 +61,8 @@ return {
 						enable = true,
 						lookahead = true,
 						keymaps = {
-							["am"] = { query = "@function.outer", desc = "Select around function" },
-							["im"] = { query = "@function.inner", desc = "Select inside function" },
+							["af"] = { query = "@function.outer", desc = "Select around function" },
+							["if"] = { query = "@function.inner", desc = "Select inside function" },
 							["ac"] = { query = "@class.outer", desc = "Select around class" },
 							["ic"] = { query = "@class.inner", desc = "Select inside class" },
 						},
@@ -70,15 +70,19 @@ return {
 					move = {
 						enable = true,
 						set_jumps = true,
-						goto_next = {
-							["]m"] = { query = "@function.*", desc = "Move to next function" },
-							["]c"] = { query = "@class.*", desc = "Move to next class" },
+						goto_next_start = {
 							["]p"] = { query = "@parameter.inner", desc = "Move to next parameter" },
 						},
-						goto_previous = {
-							["[m"] = { query = "@function.*", desc = "Move to previous function" },
-							["[c"] = { query = "@class.*", desc = "Move to previous class" },
+						goto_previous_start = {
 							["[p"] = { query = "@parameter.inner", desc = "Move to previous parameter" },
+						},
+						goto_next = {
+							["]f"] = { query = "@function.*", desc = "Move to next function" },
+							["]c"] = { query = "@class.*", desc = "Move to next class" },
+						},
+						goto_previous = {
+							["[f"] = { query = "@function.*", desc = "Move to previous function" },
+							["[c"] = { query = "@class.*", desc = "Move to previous class" },
 						},
 					}
 				}

@@ -128,17 +128,10 @@ set -o emacs
 # starship
 eval "$(starship init bash)"
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 
 # PATH
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="/usr/local/go/bin:$PATH"
-export PATH="$HOME/go/bin:$PATH"
-export PATH="$HOME/zls/zig-out/bin:$PATH"
 
 # zoxide
 eval "$(zoxide init bash)"
@@ -173,6 +166,10 @@ load() {
                 fi
         fi
 }
+gen() {
+	ollama serve &
+	ollama run "$1"
+}
 
 # pnpm
 export PNPM_HOME="/home/avi/.local/share/pnpm"
@@ -189,8 +186,6 @@ export PATH="/home/avi/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
 [[ -f ~/.bash-preexec.sh ]] && source /home/avi/.bash-preexec.sh
 eval "$(atuin init bash)"
 
-# gvm
-[[ -s "/home/avi/.gvm/scripts/gvm" ]] && source "/home/avi/.gvm/scripts/gvm"
 
 # setup shellfish
 test -e "$HOME/.shellfishrc" && source "$HOME/.shellfishrc"

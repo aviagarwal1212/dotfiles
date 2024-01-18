@@ -1,0 +1,12 @@
+[1705422589] 
+llama server listening at http://127.0.0.1:63312
+
+[1705422589] warming up the model with an empty run
+[1705422590] Available slots:
+[1705422590]  -> Slot 0 - max context: 2048
+[1705422590] all slots are idle and system prompt is empty, clear the KV cache
+[1705422590] slot 0 is processing [task id: 0]
+[1705422590] slot 0 : kv cache rm - [0, end)
+[1705422609] sampled token:   315: ' I'
+[1705422609] sampled token:  3573: ' cannot'
+[1705422609] slot 0 released (41 tokens in cache)
