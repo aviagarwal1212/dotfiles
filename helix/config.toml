@@ -23,6 +23,7 @@ r = ":run-shell-command zellij run -f -- just run"
 t = ":run-shell-command zellij run -f -- just test"
 g = ":run-shell-command zellij run -fc -- lazygit"
 f = ":run-shell-command zellij run --direction right --name broot --close-on-exit -- broot"
+n = ":run-shell-command zellij run --direction right --name nap --close-on-exit -- nap $(nap list | fzf)"
 e = [":config-reload", ":reload-all", ":redraw", ":lsp-restart"]
 
 [keys.normal.z]

@@ -132,6 +132,7 @@ eval "$(starship init bash)"
 # PATH
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 # zoxide
 eval "$(zoxide init bash)"

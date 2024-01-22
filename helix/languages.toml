@@ -23,6 +23,7 @@ auto-format = true
 # rust
 [[language]]
 name = "rust"
+language-servers = ["rust-analyzer"]
 
 [language-server.rust-analyzer.config.check]
 command = "clippy"
@@ -35,15 +36,6 @@ command = "clippy"
 '`' = '`'
 '[' = ']'
 '<' = '>'
-
-# svelte
-[[language]]
-name = "svelte"
-auto-format = true
-
-[language.formatter]
-command = "prettier"
-args = ["--write", "--plugin", "prettier-plugin-svelte", "."]
 
 # typescript
 [[language]]

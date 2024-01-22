@@ -24,8 +24,8 @@ verbs: [
     {
         name: open-code
         key: enter
-        execution: "bash open_helix.sh {file}"
-        leave_broot: false
+        execution: "open_helix {file}"
+        leave_broot: true
     }
 
     # A standard recommended command for editing files, that you
