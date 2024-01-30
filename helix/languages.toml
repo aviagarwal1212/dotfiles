@@ -66,3 +66,28 @@ auto-format = true
 [[language]]
 name = "html"
 auto-format = true
+
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'"' = '"'
+"'" = "'"
+'`' = '`'
+'[' = ']'
+'<' = '>'
+
+#gotmpl
+
+[[language]]
+name = "gotmpl"
+language-servers = ["gopls", "vscode-html-language-server"]
+auto-format = true
+
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'"' = '"'
+"'" = "'"
+'`' = '`'
+'[' = ']'
+'<' = '>'

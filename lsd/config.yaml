@@ -1,6 +1,6 @@
 color:
   when: always
-  theme: theme
+  theme: custom
 display: almost-all
 icons:
   when: auto
